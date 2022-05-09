@@ -12,3 +12,9 @@ class usuario(models.Model):
     apellido = models.CharField(max_length=30)
     edad = models.IntegerField()
 
+class cartelera(models.Model):
+    pelicula = models.CharField(max_length=30)
+    codigoPelicula = models.CharField(max_length=30)
+    dia = models.DateField
+    horario = models.TimeField
+    
