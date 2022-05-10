@@ -8,7 +8,7 @@ def inicio(request):
     return render(request,'App/inicio.html')
 
 def contacto(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         miFormulario = Contacto(request.POST)
         if miFormulario.is_valid():
             informacion = miFormulario.cleaned_data
@@ -17,4 +17,20 @@ def contacto(request):
             return render(request,'App/inicio.html')
     else:
         miFormulario = Contacto()
-    return render(request,'App/contacto.html')
+    return render(request,'App/contacto.html',{'formulario':miFormulario})
+
+def peliculas(request):
+    return render(request,'App/peliculas.html')
+
+def list_peliculas(request):
+    peliculas = Pelicula.objects.all()
+    return render(request,'App/peliculas.html',{'peliculas':peliculas})
+
+def mostrar_pelicula(request):
+    #if request.GET['nombre']:
+    nombre = request.GET['nombre']
+    #    pelicula = Pelicula.objects.filter(nombre = nombre)
+    return render(request,'App/peliculas.html',{'nombre':nombre})    
+    #else:
+    #    respuesta = 'a'
+    #return render(request,'App/peliculas.html',{'respuesta':respuesta})

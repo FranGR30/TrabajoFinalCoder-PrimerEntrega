@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Model
 
 # Create your models here.
 class Pelicula(models.Model):
@@ -6,6 +7,7 @@ class Pelicula(models.Model):
     fechaEstreno = models.DateField()
     duracion = models.IntegerField()
     diasEnPantalla = models.DateField
+    poster = models.ImageField(null = True)
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=30)
