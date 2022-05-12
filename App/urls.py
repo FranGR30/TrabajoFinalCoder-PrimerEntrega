@@ -5,5 +5,7 @@ urlpatterns = [
      path('',inicio,name='inicio'),
      path('contacto/',contacto,name='contacto'),
      path('peliculas/',list_peliculas,name='peliculas'),
-     path('peliculas/',mostrar_pelicula),
+     path('buscar/',buscar, name = 'resultadoBusqueda'),
+     path('agregarPelicula/',agregarPelicula, name = 'agregarPelicula'),
+     path('comprarEntrada/',comprarEntrada, name = 'comprarEntrada'),
 ]

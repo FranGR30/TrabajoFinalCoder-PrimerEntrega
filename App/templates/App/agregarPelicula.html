@@ -1,0 +1,16 @@
+{% extends "App/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+
+<div class="card-body">
+    <form action="" method="POST" enctype="multipart/form-data" class="form-group mt-5 col-6">{% csrf_token %}
+        <table class="section-heading text-uppercase form-control mb-2">
+            {{ formulario.as_table }}
+        </table>
+        <input type="submit" value="Agregar">
+    </form>
+</div>
+
+{% endblock %}

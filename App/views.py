@@ -19,6 +19,18 @@ def contacto(request):
         miFormulario = Contacto()
     return render(request,'App/contacto.html',{'formulario':miFormulario})
 
+def agregarPelicula(request):
+    if request.method == 'POST':
+        miFormulario = Agregar_Pelicula(request.POST)
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            pelicula = Pelicula(nombre = informacion['nombre'], fechaEstreno = informacion['fechaEstreno'], duracion = informacion['duracion'])
+            pelicula.save()
+            return render(request,'App/inicio.html')
+    else:
+        miFormulario = Agregar_Pelicula()
+    return render(request,'App/agregarPelicula.html',{'formulario':miFormulario})
+
 def peliculas(request):
     return render(request,'App/peliculas.html')
 
@@ -26,11 +38,26 @@ def list_peliculas(request):
     peliculas = Pelicula.objects.all()
     return render(request,'App/peliculas.html',{'peliculas':peliculas})
 
-def mostrar_pelicula(request):
-    #if request.GET['nombre']:
+def buscar(request):
     nombre = request.GET['nombre']
-    #    pelicula = Pelicula.objects.filter(nombre = nombre)
-    return render(request,'App/peliculas.html',{'nombre':nombre})    
-    #else:
-    #    respuesta = 'a'
-    #return render(request,'App/peliculas.html',{'respuesta':respuesta})
+    peliculas = Pelicula.objects.filter(nombre = nombre)
+    return render(request,'App/peliculaBuscada.html',{'peliculas':peliculas,'nombre':nombre})    
+
+def comprarEntrada(request):
+    if request.method == 'POST':
+        miFormulario = ComprarEntradaForm(request.POST)
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            comprarEntradita = ComprarEntrada(
+                nombre=informacion['nombre'],
+                apellido=informacion['apellido'],
+                email=informacion['email'],
+                telefono=informacion['telefono'],
+                pelicula=informacion['pelicula'],
+                metodoDePago=informacion['metodoDePago'],
+                horario=informacion['horario']
+                )
+            comprarEntradita.save()
+            return render(request,'App/inicio.html')
+    peliculas = Pelicula.objects.all()
+    return render(request,'App/comprarEntrada.html',{'peliculas':peliculas})

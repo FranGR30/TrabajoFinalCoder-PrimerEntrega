@@ -5,14 +5,13 @@
 {% block ContenidoQueCambia %}
 <div class="text-center">
   <h1>Peliculas</h1>
-  <form action="" method="GET"> {% csrf_token %}
-    <select name="" id="">
+  <form action="{% url 'resultadoBusqueda' %}" method="GET">
+    <select name="nombre">
         {% for Pelicula in peliculas %}
-          <option name = "nombre" id = "nombre" >{{ Pelicula.nombre }}</option>
+          <option>{{ Pelicula.nombre }}</option>
         {% endfor %}
       <input type="submit" value="Buscar">
     </select>
   </form>
-  <p>{{nombre}}</p>
 </div>
 {% endblock %}

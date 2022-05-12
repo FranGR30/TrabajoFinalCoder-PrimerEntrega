@@ -1,0 +1,13 @@
+{% extends "App/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoQueCambia %}
+    <div class="text-center">
+    {% for Pelicula in peliculas %}
+        <h1>{{Pelicula.nombre}}</h1>
+        <h3>Duracion: {{Pelicula.duracion}} minutos</h3>
+        <h3>Fecha de Estreno: {{Pelicula.fechaEstreno}}</h3>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Pelicula)
 admin.site.register(Usuario)
 admin.site.register(Cartelera)
+admin.site.register(ComprarEntrada)
