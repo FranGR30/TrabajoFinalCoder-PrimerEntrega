@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='pelicula',
             name='poster',
-            field=models.ImageField(blank=True, null=True, upload_to=App.models.filepath),
+            field=models.ImageField(blank=True, null=True, upload_to=""),
         ),
     ]

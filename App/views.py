@@ -55,7 +55,6 @@ def comprarEntrada(request):
                 telefono=informacion['telefono'],
                 pelicula=informacion['pelicula'],
                 metodoDePago=informacion['metodoDePago'],
-                horario=informacion['horario']
                 )
             comprarEntradita.save()
             return render(request,'App/inicio.html')

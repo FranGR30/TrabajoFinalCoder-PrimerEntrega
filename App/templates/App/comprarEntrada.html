@@ -4,12 +4,14 @@
 
 {% block ContenidoQueCambia %}
 <div class="container">
-    <form action="{% url 'inicio' %}" method="POST" class="form-group mt-5 col-6">{% csrf_token %}
+    <form action="" method="POST" class="form-group mt-5 col-6">{% csrf_token %}
         <h2 class="text-center">COMPRA TU ENTRADA</h2>
         <p>Nombre: <input type="text" name="nombre" id="nombre" class="form-control mb-2" placeholder="Nombre"></p>
         <p>Apellido: <input type="text" name="apellido" id="apellido" class="form-control mb-2" placeholder="Apellido"></p>
         <p>Email: <input type="email" name="email" id="email" class="form-control mb-2" placeholder="Email"></p>
-        <p>Telefono: <input type="tel" name="telefono" id="telefono" class="form-control mb-2" placeholder="Telefono"></p>
+        <p>Telefono: <input type="number" name="telefono" id="telefono" class="form-control mb-2" placeholder="Telefono"></p>
+        <!-- <p>Pelicula: <input type="text" name="pelicula" id="pelicula" class="form-control mb-2" placeholder="Pelicula"></p> -->
+        <!-- <p>Metodo de pago: <input type="text" name="metodoDePago" id="metodoDePago" class="form-control mb-2" placeholder="metodoDePago"></p> -->
         <p>Pelicula:
             <select name="pelicula" class="form-select" aria-label="Seleccione su pelicula">
                 {% for Pelicula in peliculas %}
@@ -25,7 +27,7 @@
                       <option value="Mercado Pago">Mercado Pago</option>
                 </select>
         </p>
-        <p>Horario: <input type="time" name="horario" id="horario" class="form-control mb-2" placeholder="Horario"></p>
+
         <button type="submit" class="btn btn-info mb-2" >Comprar Entrada</button>
     </form>
     </div>
